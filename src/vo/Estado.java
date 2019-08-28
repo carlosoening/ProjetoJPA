@@ -1,12 +1,35 @@
 package vo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Estado {
+	@Id
+	@GeneratedValue
+	@Column(name = "estd_id")
 	private Integer id;
+	
+	@Column(name = "estd_nmestado")
 	private String nome;
+	
+	@Column(name = "estd_cduf")
 	private String uf;
+	
+	@Column(name = "estd_qtdpopulacao")
 	private Integer populacao;
+	
+	@Column(name = "estd_nndimensao")
 	private Double dimensao;
+	
+	@Column(name = "estd_qtdCidades")
 	private Integer qtdCidades;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
 	private Pais pais;
 	
 	public Integer getId() {

@@ -1,9 +1,30 @@
 package vo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Cidade {
+	@Id()
+	@GeneratedValue
+	@Column(name = "cide_id")
 	private Integer id;
+	
+	@Column(name = "cide_nmcidade")
 	private String nome;
+	
+	@Column(name = "cide_qtdpupulacao")
 	private Integer populacao;
+	
+	@Column(name = "cide_nndimensao")
+	private Double dimensao;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Estado estado;
 	
 	public Integer getId() {
 		return id;
@@ -35,6 +56,4 @@ public class Cidade {
 	public void setEstado(Estado estado) {
 		this.estado = estado;
 	}
-	private Double dimensao;
-	private Estado estado;
 }

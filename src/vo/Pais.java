@@ -1,13 +1,37 @@
 package vo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+@Entity
 public class Pais {
+	@Id
+	@GeneratedValue
+	@Column(name = "pais_id")
 	private Integer id;
+	
+	@Column(name = "pais_nmpais")
 	private String nome;
+	
+	@Column(name = "pais_nmlinguaprincipal")
 	private String linguaPrincipal;
+	
+	@Column(name = "pais_nmcontinente")
 	private String continente;
+	
+	@Column(name = "pais_qtdpopulacao")
 	private Integer populacao;
+	
+	@Column(name = "pais_nndimensao")
 	private Double dimensao;
+	
+	@Column(name = "pais_codigodediscagem")
 	private String codigoDeDiscagem;
+	
+	@OneToMany(mappedBy = "pais")
 	private Estado[] estados;
 	
 	public Integer getId() {
