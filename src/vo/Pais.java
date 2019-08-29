@@ -1,7 +1,10 @@
 package vo;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -32,7 +35,7 @@ public class Pais {
 	private String codigoDeDiscagem;
 	
 	@OneToMany(mappedBy = "pais")
-	private Estado[] estados;
+	private List<Estado> estados;
 	
 	public Integer getId() {
 		return id;
@@ -76,10 +79,10 @@ public class Pais {
 	public void setCodigoDeDiscagem(String codigoDeDiscagem) {
 		this.codigoDeDiscagem = codigoDeDiscagem;
 	}
-	public Estado[] getEstados() {
+	public List<Estado> getEstados() {
 		return estados;
 	}
-	public void setEstados(Estado[] estados) {
+	public void setEstados(List<Estado> estados) {
 		this.estados = estados;
 	}
 }
