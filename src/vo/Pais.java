@@ -37,6 +37,11 @@ public class Pais {
 	@OneToMany(mappedBy = "pais")
 	private List<Estado> estados;
 	
+	public Pais(Integer id) {
+		this.id = id;
+	}
+	public Pais() {
+	}
 	public Integer getId() {
 		return id;
 	}

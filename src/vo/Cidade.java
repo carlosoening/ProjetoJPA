@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.sun.istack.internal.NotNull;
+
 @Entity
 public class Cidade {
 	@Id()
@@ -24,7 +26,15 @@ public class Cidade {
 	private Double dimensao;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
+	@NotNull
 	private Estado estado;
+	
+	public Cidade(Integer id) {
+		this.id = id;
+	}
+	
+	public Cidade() {
+	}
 	
 	public Integer getId() {
 		return id;
