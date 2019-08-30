@@ -8,8 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.sun.istack.internal.NotNull;
-
 @Entity
 public class Estado {
 	@Id
@@ -34,7 +32,6 @@ public class Estado {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn()
-	@NotNull
 	private Pais pais;
 	
 	public Estado(Integer id) {

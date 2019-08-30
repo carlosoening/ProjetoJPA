@@ -20,20 +20,31 @@ public class CidadeDao extends GenericDao<Cidade>{
 		
 		//dao.remove(new Cidade(15));
 		
-		/*List<Cidade> lista = dao.findAll(Cidade.class);
-		for (Cidade c : lista) {
-			System.out.println(c.getId());
-			System.out.println(c.getNome());
-			System.out.println(c.getEstado().getNome());
-			System.out.println("--------------------------");
-		}*/
+		List<Cidade> lista = dao.findAll(Cidade.class);
+		if (!lista.isEmpty()) {	
+			for (Cidade c : lista) {
+				System.out.println(c.getId());
+				System.out.println(c.getNome());
+				System.out.println(c.getEstado().getNome());
+				System.out.println("--------------------------");
+			}
+		}
+		lista = dao.findByDesc(Cidade.class, "nome", "Orle");
+		if (!lista.isEmpty()) {
+			for (Cidade c : lista) {
+				System.out.println(c.getId());
+				System.out.println(c.getNome());
+				System.out.println(c.getEstado().getNome());
+				System.out.println("--------------------------");
+			}
+		}
 		
-		List<Cidade> lista = dao.findByDesc(Cidade.class, "nome", "Orle");
-		for (Cidade c : lista) {
-			System.out.println(c.getId());
-			System.out.println(c.getNome());
-			System.out.println(c.getEstado().getNome());
-			System.out.println("--------------------------");
+		cidade = dao.findById(Cidade.class, 17);
+		if(cidade != null) {
+			System.out.println(cidade.getNome());
+			System.out.println(cidade.getEstado().getNome());
+			System.out.println(cidade.getPopulacao());
+			System.out.println("--------------------");
 		}
 	}
 }
